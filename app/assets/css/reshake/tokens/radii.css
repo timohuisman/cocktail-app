@@ -1,0 +1,16 @@
+/* Corner radii. Pills are the interaction signature. */
+:root{
+  --radius-xs:4px;    /* micro-controls */
+  --radius-sm:6px;    /* small badges */
+  --radius-md:8px;    /* inputs */
+  --radius-lg:12px;   /* inventory rows */
+  --radius-xl:16px;   /* standard cards, sidebar, stat cards */
+  --radius-xxl:20px;  /* modals, bottom sheets, bottom nav */
+  --radius-xxxl:28px; /* recipe hero, host suggestion */
+  --radius-full:9999px; /* all buttons, pill tabs, badges, avatars */
+
+  --radius-card:var(--radius-xl);
+  --radius-input:var(--radius-md);
+  --radius-pill:var(--radius-full);
+  --radius-media:var(--radius-xl);
+}

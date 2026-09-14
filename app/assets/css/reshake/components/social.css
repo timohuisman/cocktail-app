@@ -1,0 +1,12 @@
+/* Avatars & comments. No user imagery ships with the system — initials fall back. */
+.rs-avatar{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--radius-full);background:var(--surface-soft);border:2px solid var(--canvas);color:var(--slate);font:var(--type-caption-bold);overflow:hidden;flex:0 0 auto}
+.rs-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.rs-avatar--ring{border-color:var(--glass-border)}
+.rs-avatar-stack{display:inline-flex;align-items:center}
+.rs-avatar-stack .rs-avatar+.rs-avatar{margin-left:-10px}
+.rs-avatar-stack__more{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-full);background:var(--surface);border:2px solid var(--canvas);color:var(--slate);font:var(--type-micro);margin-left:-10px;flex:0 0 auto}
+
+.rs-comment{display:flex;gap:var(--space-xs);padding:var(--space-xs) 0;font:var(--type-body-sm);color:var(--ink)}
+.rs-comment__body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.rs-comment__name{font:var(--type-body-sm-medium);color:var(--ink)}
+.rs-comment__time{font:var(--type-micro);color:var(--text-tertiary)}

@@ -1,0 +1,36 @@
+/* Navigation. Sidebar on desktop, bottom bar + FAB on mobile. No hamburger. */
+.rs-sidebar{box-sizing:border-box;display:flex;flex-direction:column;gap:var(--space-xs);width:var(--sidebar-width);background:var(--glass-surface);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);box-shadow:var(--shadow-glass);border-radius:var(--radius-xl);padding:var(--space-lg);color:var(--ink)}
+.rs-wordmark{font:var(--type-heading-4);letter-spacing:-0.5px;color:var(--ink);padding:var(--space-xxs) var(--space-xs) var(--space-md)}
+.rs-nav-item{display:flex;align-items:center;gap:var(--space-sm);padding:10px 14px;border-radius:var(--radius-full);font:var(--type-body-sm-medium);color:var(--slate);background:none;border:0;cursor:pointer;text-align:left;width:100%;transition:var(--transition-control)}
+.rs-nav-item:hover{background:var(--surface-soft);color:var(--ink)}
+.rs-nav-item:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.rs-nav-item--active{background:var(--action-primary-tint);color:var(--grape-900)}
+.rs-nav-item--active:hover{background:var(--action-primary-tint)}
+.rs-nav-item__count{margin-left:auto;font:var(--type-micro);color:var(--text-tertiary)}
+.rs-sidebar__footer{margin-top:auto;padding-top:var(--space-md);border-top:1px solid var(--glass-border)}
+
+/* Bottom nav — 4 icons plus a raised FAB in the middle. */
+.rs-bottom-nav{box-sizing:border-box;display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-xs);background:var(--glass-surface-strong);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);box-shadow:var(--shadow-glass);border-radius:var(--radius-xxl) var(--radius-xxl) 0 0;padding:var(--space-sm) var(--space-md);color:var(--slate)}
+.rs-bottom-nav__item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;background:none;border:0;padding:6px 0;color:var(--slate);font:var(--type-micro);cursor:pointer;border-radius:var(--radius-md);transition:var(--transition-control)}
+.rs-bottom-nav__item--active{color:var(--grape-900)}
+.rs-bottom-nav__slot{flex:0 0 auto;width:72px;display:flex;justify-content:center}
+
+/* FAB — the strongest elevation in the system. */
+.rs-fab{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:var(--radius-full);background:var(--action-primary);color:var(--text-on-primary);border:0;box-shadow:var(--shadow-fab);cursor:pointer;transition:var(--transition-control)}
+.rs-fab:hover{background:var(--action-primary-pressed)}
+.rs-fab:active{transform:scale(var(--press-scale))}
+.rs-fab:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
+.rs-fab--raised{transform:translateY(-14px)}
+.rs-fab--raised:active{transform:translateY(-14px) scale(var(--press-scale))}
+
+/* Sticky glass top bar for Discover / My Bar. */
+.rs-topbar{box-sizing:border-box;display:flex;align-items:center;gap:var(--space-sm);background:var(--glass-surface-strong);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);border-radius:var(--radius-full);padding:12px 16px}
+
+/* Pill tabs — in-page navigation. */
+.rs-pill-tabs{display:inline-flex;gap:var(--space-xs);flex-wrap:wrap}
+.rs-pill-tab{background:var(--canvas);color:var(--slate);font:var(--type-body-sm-medium);border-radius:var(--radius-full);padding:8px 16px;border:1px solid var(--border-default);cursor:pointer;transition:var(--transition-control)}
+.rs-pill-tab:hover{color:var(--ink);background:var(--surface-soft)}
+.rs-pill-tab:active{transform:scale(var(--press-scale))}
+.rs-pill-tab:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.rs-pill-tab--active{background:var(--action-primary);color:var(--text-on-primary);border-color:var(--action-primary)}
+.rs-pill-tab--active:hover{background:var(--action-primary-pressed);color:var(--text-on-primary)}

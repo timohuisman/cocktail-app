@@ -1,0 +1,11 @@
+/* Motion. The brief lists timings as a known gap and advises 150–200ms ease;
+   these tokens fill that gap — see readme.md → "Intentional additions". */
+:root{
+  --duration-fast:150ms;
+  --duration-base:200ms;
+  --duration-slow:280ms;
+  --ease-standard:cubic-bezier(0.2,0.8,0.2,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --transition-control:background-color var(--duration-fast) var(--ease-standard),border-color var(--duration-fast) var(--ease-standard),transform var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard);
+  --press-scale:0.97;
+}

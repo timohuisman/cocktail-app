@@ -10,20 +10,21 @@ const { data: recipes } = await useFetch<LocalRecipe[]>('/api/recipes')
 
 <template>
   <div>
-    <div class="mb-6 flex items-center justify-between">
-      <h1 class="text-2xl font-semibold">Mijn recepten</h1>
-      <NuxtLink
-        to="/recipes/new"
-        class="rounded-md bg-white px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-neutral-200"
-      >
-        + Nieuw recept
-      </NuxtLink>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-md)">
+      <h1 class="rs-heading-1">Mijn recepten</h1>
+      <ReshakeButton href="/recipes/new" icon-left="plus">Nieuw recept</ReshakeButton>
     </div>
 
-    <p v-if="!recipes?.length" class="text-neutral-500">
-      Je hebt nog geen eigen recepten toegevoegd.
-    </p>
-    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+    <ReshakeEmptyState
+      v-if="!recipes?.length"
+      style="margin-top: var(--space-lg)"
+      icon="book-open"
+      title="Nog geen eigen recepten"
+      body="Voeg je eerste recept toe om het hier terug te vinden."
+      cta="Nieuw recept"
+      @cta="navigateTo('/recipes/new')"
+    />
+    <div v-else class="rs-grid" style="margin-top: var(--space-lg)">
       <CocktailCard
         v-for="r in recipes"
         :key="r.id"

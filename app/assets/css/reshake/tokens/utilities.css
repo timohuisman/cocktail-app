@@ -1,0 +1,45 @@
+/* Utilities — the handful of patterns every Reshake surface repeats.
+   Everything else lives on the components. */
+
+/* Page canvas: never flat white. */
+.rs-page{min-height:100%;background:var(--gradient-dawn);background-attachment:fixed;color:var(--text-body);font:var(--type-body-md);-webkit-font-smoothing:antialiased}
+.rs-page--dusk{background:var(--gradient-dusk);background-attachment:fixed}
+.rs-container{max-width:var(--container-max);margin:0 auto;padding-inline:var(--grid-gutter)}
+
+/* Frosted glass layer. */
+.rs-glass{background:var(--glass-surface);border:var(--glass-border-width) solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);box-shadow:var(--shadow-glass);border-radius:var(--radius-xl)}
+.rs-glass--strong{background:var(--glass-surface-strong)}
+.rs-glass--flat{box-shadow:none}
+
+/* Type. */
+.rs-hero-display{font:var(--type-hero-display);letter-spacing:var(--hero-display-tracking);margin:0}
+.rs-display-lg{font:var(--type-display-lg);letter-spacing:var(--display-lg-tracking);margin:0}
+.rs-heading-1{font:var(--type-heading-1);letter-spacing:var(--heading-1-tracking);margin:0}
+.rs-heading-2{font:var(--type-heading-2);letter-spacing:var(--heading-2-tracking);margin:0}
+.rs-heading-3{font:var(--type-heading-3);margin:0}
+.rs-heading-4{font:var(--type-heading-4);margin:0}
+.rs-heading-5{font:var(--type-heading-5);margin:0}
+.rs-subtitle{font:var(--type-subtitle);margin:0}
+.rs-body{font:var(--type-body-md);margin:0}
+.rs-body-medium{font:var(--type-body-md-medium);margin:0}
+.rs-body-sm{font:var(--type-body-sm);margin:0}
+.rs-body-sm-medium{font:var(--type-body-sm-medium);margin:0}
+.rs-caption{font:var(--type-caption);margin:0}
+.rs-caption-bold{font:var(--type-caption-bold);margin:0}
+.rs-micro{font:var(--type-micro);margin:0}
+.rs-micro-uppercase{font:var(--type-micro-uppercase);letter-spacing:var(--micro-uppercase-tracking);text-transform:uppercase;margin:0}
+.rs-stat{font:var(--type-stat-display);letter-spacing:var(--stat-display-tracking);margin:0;font-variant-numeric:tabular-nums}
+.rs-text-secondary{color:var(--text-secondary)}
+.rs-text-tertiary{color:var(--text-tertiary)}
+
+/* Links — plum, underline on hover only. */
+a{color:var(--grape-700);text-decoration:none}
+a:hover{color:var(--grape-900);text-decoration:underline}
+
+/* Shared focus treatment. */
+.rs-focusable:focus-visible,.rs-page :focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+
+.rs-stack{display:flex;flex-direction:column}
+.rs-row{display:flex;align-items:center}
+.rs-scroll-x{overflow-x:auto;scrollbar-width:none}
+.rs-scroll-x::-webkit-scrollbar{display:none}

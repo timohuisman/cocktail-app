@@ -1,0 +1,84 @@
+/* Colors — base values then semantic aliases. Contrast notes are from the brief. */
+:root{
+  /* Neutrals: warm dark plum instead of flat black/gray */
+  --ink:#241B2E;              /* primary text — 13.2:1 on canvas, AAA */
+  --slate:#5C4F6D;            /* secondary text — 5.6:1, AA */
+  --steel:#8D8299;            /* tertiary text / icons — 3.6:1, large text & icons only */
+  --muted:#B7AFC2;            /* placeholders, disabled labels — decorative */
+  --on-primary:#FFFFFF;
+  --on-dark:#FFFFFF;
+  --on-dark-muted:rgba(255,255,255,0.72);
+
+  /* Surfaces */
+  --canvas:#FFFFFF;
+  --surface:#FBF8FE;
+  --surface-soft:#F3EEF9;
+  --hairline:#E6DFF0;
+  --hairline-soft:#EFE9F6;
+  --hairline-strong:#D6CBE8;
+
+  /* App primary — deep plum */
+  --primary:#2E2140;
+  --primary-pressed:#3F2E58;
+  --primary-light:#EDE6FF;
+
+  /* Gradient stops — page canvas only, never text-bearing */
+  --gradient-dawn-start:#FFE9F1;
+  --gradient-dawn-mid:#EAF3FF;
+  --gradient-dawn-end:#E1F7EE;
+  --gradient-dusk-start:#EDE6FF;
+  --gradient-dusk-end:#FFE6DC;
+
+  /* Flavor palette — 100/300 backgrounds, 500 accent/icon, 700 text on white, 900 text on own 100 */
+  --blush-100:#FFE4EE;  --blush-300:#FFB8D2;  --blush-500:#F472A6;  --blush-700:#C2255C;  --blush-900:#7A1339;
+  --mint-100:#D9F5EC;   --mint-300:#9EE8CF;   --mint-500:#3FBF96;   --mint-700:#1C7A5C;   --mint-900:#0F4636;
+  --citrus-100:#FFF3D6; --citrus-300:#FFD98A; --citrus-500:#F2A93C; --citrus-700:#A85D0A; --citrus-900:#5C3305;
+  --sky-100:#DFF0FF;    --sky-300:#A9D8FF;    --sky-500:#4FA8F0;    --sky-700:#1D6FB8;    --sky-900:#123F66;
+  --grape-100:#EDE6FF;  --grape-300:#C7B4FF;  --grape-500:#9B7EF0;  --grape-700:#6A46C4;  --grape-900:#3B2570;
+  --coral-100:#FFE6DC;  --coral-300:#FFB89A;  --coral-500:#F2793D;  --coral-700:#B23F1D;  --coral-900:#6B2410;
+
+  /* Semantic */
+  --success-100:#D9F5EC; --success-700:#1C7A5C;
+  --error-100:#FFE1E1;   --error-700:#C22B2B;
+  --warning-100:#FFF3D6; --warning-700:#A85D0A;
+
+  /* ── Semantic aliases ── */
+  --text-body:var(--ink);
+  --text-heading:var(--ink);
+  --text-secondary:var(--slate);
+  --text-tertiary:var(--steel);
+  --text-placeholder:var(--muted);
+  --text-disabled:var(--muted);
+  --text-on-primary:var(--on-primary);
+  --text-on-dark:var(--on-dark);
+  --text-on-dark-muted:var(--on-dark-muted);
+  --icon-default:var(--slate);
+  --icon-quiet:var(--steel);
+
+  --surface-card:var(--canvas);
+  --surface-section:var(--surface);
+  --surface-nested:var(--surface-soft);
+  --border-subtle:var(--hairline-soft);
+  --border-default:var(--hairline);
+  --border-strong:var(--hairline-strong);
+
+  --action-primary:var(--primary);
+  --action-primary-pressed:var(--primary-pressed);
+  --action-primary-tint:var(--primary-light);
+  --action-disabled-bg:var(--hairline);
+  --action-disabled-text:var(--muted);
+  --focus-ring:var(--grape-700);
+
+  /* Flavor → smaaktag mapping. Never introduce a seventh family. */
+  --flavor-sweet:var(--blush-500);  --flavor-sweet-tint:var(--blush-100);  --flavor-sweet-text:var(--blush-900);
+  --flavor-sour:var(--mint-500);    --flavor-sour-tint:var(--mint-100);    --flavor-sour-text:var(--mint-900);
+  --flavor-smoky:var(--citrus-500); --flavor-smoky-tint:var(--citrus-100); --flavor-smoky-text:var(--citrus-900);
+  --flavor-herbal:var(--sky-500);   --flavor-herbal-tint:var(--sky-100);   --flavor-herbal-text:var(--sky-900);
+  --flavor-bitter:var(--grape-500); --flavor-bitter-tint:var(--grape-100); --flavor-bitter-text:var(--grape-900);
+  --flavor-strong:var(--coral-500); --flavor-strong-tint:var(--coral-100); --flavor-strong-text:var(--coral-900);
+
+  /* Composite page gradients */
+  --gradient-dawn:linear-gradient(145deg,var(--gradient-dawn-start) 0%,var(--gradient-dawn-mid) 52%,var(--gradient-dawn-end) 100%);
+  --gradient-dusk:linear-gradient(145deg,var(--gradient-dusk-start) 0%,var(--gradient-dusk-end) 100%);
+  --surface-page:var(--gradient-dawn);
+}

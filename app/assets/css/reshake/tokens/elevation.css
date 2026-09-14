@@ -1,0 +1,14 @@
+/* Elevation — depth comes from transparency and blur, not hard shadows. */
+:root{
+  --elevation-0:none;                                   /* flat list rows, hairline border only */
+  --elevation-1:rgba(46,33,64,0.05) 0px 2px 8px 0px;    /* feed posts, cards on white */
+  --elevation-1-raised:rgba(46,33,64,0.06) 0px 4px 12px 0px; /* recipe cards */
+  --elevation-2:var(--glass-shadow);                    /* glass: sidebar, nav, stat cards, modals */
+  --elevation-3:rgba(46,33,64,0.28) 0px 8px 20px -4px;  /* FAB */
+  --elevation-toast:rgba(46,33,64,0.2) 0px 8px 24px -4px;
+
+  --shadow-card:var(--elevation-1);
+  --shadow-recipe:var(--elevation-1-raised);
+  --shadow-glass:var(--elevation-2);
+  --shadow-fab:var(--elevation-3);
+}

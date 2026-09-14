@@ -1,0 +1,47 @@
+/* Typography — one family (Satoshi) across the whole scale.
+   Each named style exposes size / weight / leading / tracking, plus a
+   `--type-*` font shorthand for one-line application. */
+:root{
+  --weight-regular:400;
+  --weight-medium:500;   /* headings + emphasis */
+  --weight-semibold:600; /* badges, uppercase micro — resolves to Satoshi 700 */
+
+  --hero-display-size:80px;   --hero-display-weight:500; --hero-display-leading:1.05; --hero-display-tracking:-2px;
+  --display-lg-size:60px;     --display-lg-weight:500;   --display-lg-leading:1.10;   --display-lg-tracking:-1.5px;
+  --heading-1-size:48px;      --heading-1-weight:500;    --heading-1-leading:1.15;    --heading-1-tracking:-1px;
+  --heading-2-size:36px;      --heading-2-weight:500;    --heading-2-leading:1.20;    --heading-2-tracking:-0.5px;
+  --heading-3-size:28px;      --heading-3-weight:500;    --heading-3-leading:1.25;    --heading-3-tracking:0;
+  --heading-4-size:22px;      --heading-4-weight:500;    --heading-4-leading:1.30;    --heading-4-tracking:0;
+  --heading-5-size:18px;      --heading-5-weight:500;    --heading-5-leading:1.40;    --heading-5-tracking:0;
+  --subtitle-size:18px;       --subtitle-weight:400;     --subtitle-leading:1.50;     --subtitle-tracking:0;
+  --body-md-size:16px;        --body-md-weight:400;      --body-md-leading:1.50;      --body-md-tracking:0;
+  --body-md-medium-weight:500;
+  --body-sm-size:14px;        --body-sm-weight:400;      --body-sm-leading:1.50;      --body-sm-tracking:0;
+  --body-sm-medium-weight:500;
+  --caption-size:13px;        --caption-weight:400;      --caption-leading:1.40;      --caption-tracking:0;
+  --caption-bold-weight:600;
+  --micro-size:12px;          --micro-weight:500;        --micro-leading:1.40;        --micro-tracking:0;
+  --micro-uppercase-size:11px;--micro-uppercase-weight:600;--micro-uppercase-leading:1.40;--micro-uppercase-tracking:0.5px;
+  --button-md-size:14px;      --button-md-weight:500;    --button-md-leading:1.30;    --button-md-tracking:0;
+  --stat-display-size:64px;   --stat-display-weight:500; --stat-display-leading:1.10; --stat-display-tracking:-1.5px;
+
+  /* font shorthands: weight size/leading family */
+  --type-hero-display:500 80px/1.05 var(--font-core);
+  --type-display-lg:500 60px/1.10 var(--font-core);
+  --type-heading-1:500 48px/1.15 var(--font-core);
+  --type-heading-2:500 36px/1.20 var(--font-core);
+  --type-heading-3:500 28px/1.25 var(--font-core);
+  --type-heading-4:500 22px/1.30 var(--font-core);
+  --type-heading-5:500 18px/1.40 var(--font-core);
+  --type-subtitle:400 18px/1.50 var(--font-core);
+  --type-body-md:400 16px/1.50 var(--font-core);
+  --type-body-md-medium:500 16px/1.50 var(--font-core);
+  --type-body-sm:400 14px/1.50 var(--font-core);
+  --type-body-sm-medium:500 14px/1.50 var(--font-core);
+  --type-caption:400 13px/1.40 var(--font-core);
+  --type-caption-bold:600 13px/1.40 var(--font-core);
+  --type-micro:500 12px/1.40 var(--font-core);
+  --type-micro-uppercase:600 11px/1.40 var(--font-core);
+  --type-button-md:500 14px/1.30 var(--font-core);
+  --type-stat-display:500 64px/1.10 var(--font-core);
+}
