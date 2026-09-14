@@ -1,0 +1,14 @@
+node_modules
+.nuxt
+.output
+.data
+.git
+.ddev
+.idea
+.env
+.env.*
+!.env.example
+prisma/dev.db
+prisma/*.db-journal
+app/generated/prisma
+*.log
