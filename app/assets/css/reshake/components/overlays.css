@@ -1,0 +1,19 @@
+/* Overlays — glass modal, bottom sheet, toast. */
+.rs-scrim{position:absolute;inset:0;background:rgba(36,27,46,0.28);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:var(--space-xl);z-index:40;animation:rs-fade var(--duration-base) var(--ease-standard)}
+.rs-scrim--bottom{align-items:flex-end;padding:0}
+@keyframes rs-fade{from{opacity:0}to{opacity:1}}
+@keyframes rs-rise{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes rs-sheet{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+.rs-modal{box-sizing:border-box;width:100%;max-width:520px;max-height:100%;overflow:auto;background:var(--glass-surface-strong);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);box-shadow:var(--shadow-glass);border-radius:var(--radius-xxl);padding:var(--space-xxl);animation:rs-rise var(--duration-slow) var(--ease-out)}
+.rs-modal__head{display:flex;align-items:flex-start;gap:var(--space-md);margin-bottom:var(--space-md)}
+.rs-modal__title{font:var(--type-heading-3);color:var(--ink);flex:1}
+.rs-modal__sub{font:var(--type-body-sm);color:var(--text-secondary);margin-top:var(--space-xxs)}
+.rs-modal__footer{display:flex;gap:var(--space-sm);justify-content:flex-end;margin-top:var(--space-xl)}
+
+.rs-sheet{box-sizing:border-box;width:100%;background:var(--glass-surface-strong);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);border-radius:var(--radius-xxl) var(--radius-xxl) 0 0;padding:var(--space-xl);animation:rs-sheet var(--duration-slow) var(--ease-out);max-height:92%;overflow:auto}
+.rs-sheet__grip{width:44px;height:4px;border-radius:var(--radius-full);background:var(--hairline-strong);margin:0 auto var(--space-md)}
+.rs-sheet__title{font:var(--type-heading-4);color:var(--ink)}
+
+.rs-toast{display:inline-flex;align-items:center;gap:var(--space-xs);background:var(--action-primary);color:var(--text-on-primary);font:var(--type-body-sm-medium);border-radius:var(--radius-lg);padding:12px 16px;box-shadow:var(--elevation-toast);animation:rs-rise var(--duration-base) var(--ease-out)}
+.rs-toast__action{background:none;border:0;color:var(--on-dark);font:var(--type-body-sm-medium);text-decoration:underline;cursor:pointer;padding:0}

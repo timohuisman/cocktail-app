@@ -34,30 +34,24 @@ async function search() {
 
 <template>
   <div>
-    <h1 class="mb-2 text-2xl font-semibold">Wat kan ik maken?</h1>
-    <p class="mb-6 text-sm text-neutral-400">
-      Vul de ingrediënten in die je in huis hebt, gescheiden door een komma.
-    </p>
+    <div class="rs-page-head">
+      <h1 class="rs-heading-1">Wat kan ik maken?</h1>
+      <p class="rs-body rs-text-secondary">Vul de ingrediënten in die je in huis hebt, gescheiden door een komma.</p>
+    </div>
 
-    <form class="mb-8 flex gap-2" @submit.prevent="search">
-      <input
-        v-model="ingredientsInput"
-        type="text"
-        placeholder="bv. Vodka, Lime, Mint"
-        class="flex-1 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm placeholder-neutral-500 focus:border-neutral-500 focus:outline-none"
-      >
-      <button
-        type="submit"
-        class="rounded-md bg-white px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-neutral-200"
-      >
-        Zoeken
-      </button>
+    <form class="rs-form__search" style="margin-top: var(--space-lg)" @submit.prevent="search">
+      <ReshakeSearchPill v-model="ingredientsInput" placeholder="bv. Vodka, Lime, Mint" full-width />
+      <ReshakeButton type="submit">Zoeken</ReshakeButton>
     </form>
 
-    <p v-if="searched && !results.length" class="text-neutral-500">
-      Geen cocktails gevonden met die combinatie van ingrediënten.
-    </p>
-    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+    <ReshakeEmptyState
+      v-if="searched && !results.length"
+      style="margin-top: var(--space-section-sm)"
+      icon="search-x"
+      title="Geen match gevonden"
+      body="Geen cocktails gevonden met die combinatie van ingrediënten."
+    />
+    <div v-else class="rs-grid" style="margin-top: var(--space-section-sm)">
       <CocktailCard
         v-for="d in results"
         :key="d.idDrink"

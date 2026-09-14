@@ -44,69 +44,45 @@ async function submit() {
 </script>
 
 <template>
-  <div class="max-w-xl">
-    <h1 class="mb-6 text-2xl font-semibold">Nieuw recept</h1>
+  <div>
+    <h1 class="rs-heading-1" style="margin-bottom: var(--space-lg)">Nieuw recept</h1>
 
-    <form class="space-y-5" @submit.prevent="submit">
-      <div>
-        <label class="mb-1 block text-sm font-medium text-neutral-300">Naam</label>
-        <input v-model="name" required class="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none">
+    <form class="rs-form" @submit.prevent="submit">
+      <ReshakeTextInput v-model="name" label="Naam" required />
+
+      <div class="rs-form__row">
+        <ReshakeTextInput v-model="category" label="Categorie" />
+        <ReshakeTextInput v-model="glass" label="Glas" />
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
-        <div>
-          <label class="mb-1 block text-sm font-medium text-neutral-300">Categorie</label>
-          <input v-model="category" class="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none">
-        </div>
-        <div>
-          <label class="mb-1 block text-sm font-medium text-neutral-300">Glas</label>
-          <input v-model="glass" class="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none">
-        </div>
-      </div>
+      <ReshakeTextInput v-model="imageUrl" label="Afbeelding URL" />
 
-      <div>
-        <label class="mb-1 block text-sm font-medium text-neutral-300">Afbeelding URL</label>
-        <input v-model="imageUrl" class="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none">
-      </div>
-
-      <label class="flex items-center gap-2 text-sm text-neutral-300">
-        <input v-model="isAlcoholic" type="checkbox" class="rounded border-neutral-700 bg-neutral-900">
+      <label style="display: flex; align-items: center; gap: var(--space-xs); font: var(--type-body-sm); color: var(--ink)">
+        <input v-model="isAlcoholic" type="checkbox">
         Alcoholisch
       </label>
 
-      <div>
-        <label class="mb-1 block text-sm font-medium text-neutral-300">Ingrediënten</label>
-        <div v-for="(ingredient, index) in ingredients" :key="index" class="mb-2 flex gap-2">
-          <input v-model="ingredient.name" placeholder="Naam" class="flex-1 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none">
-          <input v-model="ingredient.amount" placeholder="Hoeveelheid" class="w-32 rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none">
-          <button
-            type="button"
-            class="px-2 text-neutral-500 hover:text-white"
-            :disabled="ingredients.length === 1"
-            @click="removeIngredient(index)"
-          >
-            ✕
-          </button>
+      <div class="rs-field">
+        <span class="rs-label">Ingrediënten</span>
+        <div v-for="(ingredient, index) in ingredients" :key="index" style="display: flex; gap: var(--space-xs); align-items: center">
+          <input v-model="ingredient.name" placeholder="Naam" class="rs-input" style="flex: 1">
+          <input v-model="ingredient.amount" placeholder="Hoeveelheid" class="rs-input" style="width: 128px">
+          <ReshakeIconButton label="Verwijder ingrediënt" icon="x" :disabled="ingredients.length === 1" @click="removeIngredient(index)" />
         </div>
-        <button type="button" class="text-sm text-neutral-400 hover:text-white" @click="addIngredient">
-          + Ingrediënt toevoegen
-        </button>
+        <div>
+          <ReshakeButton variant="ghost" icon-left="plus" type="button" @click="addIngredient">Ingrediënt toevoegen</ReshakeButton>
+        </div>
       </div>
+
+      <ReshakeTextInput v-model="instructions" label="Instructies" multiline required />
+
+      <p v-if="error" class="rs-body-sm" style="color: var(--error-700)">{{ error }}</p>
 
       <div>
-        <label class="mb-1 block text-sm font-medium text-neutral-300">Instructies</label>
-        <textarea v-model="instructions" required rows="4" class="w-full rounded-md border border-neutral-700 bg-neutral-900 px-3 py-2 text-sm focus:border-neutral-500 focus:outline-none" />
+        <ReshakeButton type="submit" :disabled="submitting">
+          {{ submitting ? 'Opslaan…' : 'Recept opslaan' }}
+        </ReshakeButton>
       </div>
-
-      <p v-if="error" class="text-sm text-red-400">{{ error }}</p>
-
-      <button
-        type="submit"
-        :disabled="submitting"
-        class="rounded-md bg-white px-4 py-2 text-sm font-medium text-neutral-950 hover:bg-neutral-200 disabled:opacity-50"
-      >
-        {{ submitting ? 'Opslaan...' : 'Recept opslaan' }}
-      </button>
     </form>
   </div>
 </template>

@@ -34,45 +34,30 @@ async function deleteRecipe() {
 </script>
 
 <template>
-  <div v-if="recipe" class="grid gap-8 md:grid-cols-2">
-    <img v-if="recipe.imageUrl" :src="recipe.imageUrl" :alt="recipe.name" class="w-full rounded-lg">
+  <div v-if="recipe" class="rs-detail-grid">
+    <ReshakeMedia :src="recipe.imageUrl ?? undefined" :alt="recipe.name" ratio="1-1" />
     <div>
-      <h1 class="mb-2 text-2xl font-semibold">{{ recipe.name }}</h1>
-      <p class="mb-4 text-sm text-neutral-400">
-        {{ recipe.category }} · {{ recipe.glass }} · {{ recipe.isAlcoholic ? 'Alcoholisch' : 'Alcoholvrij' }}
+      <h1 class="rs-heading-1" style="margin-bottom: var(--space-xxs)">{{ recipe.name }}</h1>
+      <p class="rs-body-sm rs-text-secondary" style="margin-bottom: var(--space-lg)">
+        {{ [recipe.category, recipe.glass, recipe.isAlcoholic ? 'Alcoholisch' : 'Alcoholvrij'].filter(Boolean).join(' · ') }}
       </p>
 
-      <div class="mb-6 flex gap-2">
-        <button
-          class="rounded-md border px-4 py-2 text-sm font-medium"
-          :class="favorited
-            ? 'border-white bg-white text-neutral-950'
-            : 'border-neutral-700 text-neutral-200 hover:border-neutral-500'"
-          @click="onToggleFavorite"
-        >
-          {{ favorited ? '★ Favoriet' : '☆ Toevoegen aan favorieten' }}
-        </button>
-        <button
-          class="rounded-md border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-400 hover:border-red-500 hover:text-red-400"
-          @click="deleteRecipe"
-        >
-          Verwijderen
-        </button>
+      <div style="display: flex; gap: var(--space-sm); margin-bottom: var(--space-xl)">
+        <ReshakeButton :variant="favorited ? 'primary' : 'secondary'" icon-left="heart" @click="onToggleFavorite">
+          {{ favorited ? 'Favoriet' : 'Voeg toe aan favorieten' }}
+        </ReshakeButton>
+        <ReshakeButton variant="ghost" icon-left="trash-2" @click="deleteRecipe">Verwijderen</ReshakeButton>
       </div>
 
-      <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-neutral-400">
-        Ingrediënten
-      </h2>
-      <ul class="mb-6 space-y-1 text-sm text-neutral-200">
+      <h2 class="rs-micro-uppercase rs-text-tertiary" style="margin-bottom: var(--space-sm)">Ingrediënten</h2>
+      <ul class="rs-ingredient-list" style="margin-bottom: var(--space-xl)">
         <li v-for="ing in recipe.ingredients" :key="ing.id">
           {{ ing.amount ? `${ing.amount} ` : '' }}{{ ing.name }}
         </li>
       </ul>
 
-      <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-neutral-400">
-        Instructies
-      </h2>
-      <p class="text-sm leading-relaxed text-neutral-200">{{ recipe.instructions }}</p>
+      <h2 class="rs-micro-uppercase rs-text-tertiary" style="margin-bottom: var(--space-sm)">Instructies</h2>
+      <p class="rs-body rs-text-secondary">{{ recipe.instructions }}</p>
     </div>
   </div>
 </template>

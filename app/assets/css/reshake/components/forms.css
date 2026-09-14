@@ -1,0 +1,30 @@
+/* Inputs & filters. Focus ring is grape-700, never generic blue. */
+.rs-field{display:flex;flex-direction:column;gap:6px}
+.rs-label{font:var(--type-body-sm-medium);color:var(--ink)}
+.rs-input{box-sizing:border-box;width:100%;height:var(--control-height);background:var(--canvas);color:var(--ink);font:var(--type-body-md);border-radius:var(--radius-md);padding:12px 16px;border:1px solid var(--border-strong);transition:var(--transition-control)}
+.rs-input::placeholder{color:var(--text-placeholder)}
+.rs-input:focus{outline:none;border:2px solid var(--focus-ring);padding:11px 15px}
+.rs-input:disabled{background:var(--surface-soft);color:var(--text-disabled);cursor:not-allowed}
+.rs-input--error{border-color:var(--error-700)}
+.rs-input--textarea{height:auto;min-height:96px;resize:vertical;font:var(--type-body-md)}
+.rs-helper{font:var(--type-caption);color:var(--text-secondary)}
+.rs-helper--error{color:var(--error-700)}
+
+/* Search pill — My Bar + Discover. */
+.rs-search{box-sizing:border-box;display:inline-flex;align-items:center;gap:var(--space-xs);height:var(--control-height-sm);background:var(--surface);border:1px solid var(--border-default);border-radius:var(--radius-full);padding:8px 16px;color:var(--slate);font:var(--type-body-sm);transition:var(--transition-control)}
+.rs-search:focus-within{border-color:var(--focus-ring)}
+.rs-search--glass{background:var(--glass-surface-strong);border-color:var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop)}
+.rs-search--full{display:flex;width:100%}
+.rs-search__input{flex:1;min-width:0;border:0;background:transparent;font:var(--type-body-sm);color:var(--ink);padding:0}
+.rs-search__input:focus{outline:none}
+.rs-search__input::placeholder{color:var(--text-placeholder)}
+
+/* Filter chip. */
+.rs-chip{display:inline-flex;align-items:center;gap:6px;background:var(--canvas);color:var(--ink);font:var(--type-body-sm-medium);border-radius:var(--radius-full);padding:8px 16px;border:1px solid var(--border-strong);cursor:pointer;transition:var(--transition-control)}
+.rs-chip:hover{background:var(--surface-soft)}
+.rs-chip:active{transform:scale(var(--press-scale))}
+.rs-chip:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.rs-chip--active{background:var(--action-primary-tint);color:var(--grape-900);border-color:var(--grape-700)}
+.rs-chip--active:hover{background:var(--action-primary-tint)}
+.rs-chip__count{color:var(--text-tertiary);font:var(--type-micro)}
+.rs-chip--active .rs-chip__count{color:var(--grape-700)}
