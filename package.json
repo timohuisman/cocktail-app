@@ -12,9 +12,11 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@prisma/adapter-better-sqlite3": "^7.9.1",
+    "@prisma/adapter-pg": "^7.10.0",
     "@prisma/client": "^7.9.1",
     "nuxt": "^4.5.2",
+    "nuxt-auth-utils": "^0.5.30",
+    "pg": "^8.23.0",
     "vue": "^3.5.40",
     "vue-router": "^5.2.0"
   },
