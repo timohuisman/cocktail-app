@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Recipe {
+  id           String       @id @default(cuid())
+  name         String
+  category     String?
+  glass        String?
+  instructions String
+  imageUrl     String?
+  isAlcoholic  Boolean      @default(true)
+  ingredients  Ingredient[]
+  favorites    Favorite[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Ingredient {
+  id       String @id @default(cuid())
+  name     String
+  amount   String?
+  recipeId String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+}
+
+// Favorites can point at either a locally-created Recipe or an external
+// cocktail (identified by its TheCocktailDB id), so only one of the two is set.
+model Favorite {
+  id               String   @id @default(cuid())
+  recipeId         String?
+  recipe           Recipe?  @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  externalId       String?
+  externalName     String?
+  externalImageUrl String?
+  createdAt        DateTime @default(now())
+
+  @@unique([recipeId])
+  @@unique([externalId])
+}
