@@ -42,37 +42,32 @@ function onToggleFavorite() {
 </script>
 
 <template>
-  <div v-if="drink" class="grid gap-8 md:grid-cols-2">
-    <img :src="drink.strDrinkThumb" :alt="drink.strDrink" class="w-full rounded-lg">
+  <div v-if="drink" class="rs-detail-grid">
+    <ReshakeMedia :src="drink.strDrinkThumb" :alt="drink.strDrink" ratio="1-1" />
     <div>
-      <h1 class="mb-2 text-2xl font-semibold">{{ drink.strDrink }}</h1>
-      <p class="mb-4 text-sm text-neutral-400">
-        {{ drink.strCategory }} · {{ drink.strGlass }} · {{ drink.strAlcoholic }}
+      <h1 class="rs-heading-1" style="margin-bottom: var(--space-xxs)">{{ drink.strDrink }}</h1>
+      <p class="rs-body-sm rs-text-secondary" style="margin-bottom: var(--space-lg)">
+        {{ [drink.strCategory, drink.strGlass, drink.strAlcoholic].filter(Boolean).join(' · ') }}
       </p>
 
-      <button
-        class="mb-6 rounded-md border px-4 py-2 text-sm font-medium"
-        :class="favorited
-          ? 'border-white bg-white text-neutral-950'
-          : 'border-neutral-700 text-neutral-200 hover:border-neutral-500'"
+      <ReshakeButton
+        :variant="favorited ? 'primary' : 'secondary'"
+        :icon-left="favorited ? 'heart' : 'heart'"
+        style="margin-bottom: var(--space-xl)"
         @click="onToggleFavorite"
       >
-        {{ favorited ? '★ Favoriet' : '☆ Toevoegen aan favorieten' }}
-      </button>
+        {{ favorited ? 'Favoriet' : 'Voeg toe aan favorieten' }}
+      </ReshakeButton>
 
-      <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-neutral-400">
-        Ingrediënten
-      </h2>
-      <ul class="mb-6 space-y-1 text-sm text-neutral-200">
+      <h2 class="rs-micro-uppercase rs-text-tertiary" style="margin-bottom: var(--space-sm)">Ingrediënten</h2>
+      <ul class="rs-ingredient-list" style="margin-bottom: var(--space-xl)">
         <li v-for="ing in ingredients" :key="ing.name">
           {{ ing.amount ? `${ing.amount} ` : '' }}{{ ing.name }}
         </li>
       </ul>
 
-      <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-neutral-400">
-        Instructies
-      </h2>
-      <p class="text-sm leading-relaxed text-neutral-200">{{ drink.strInstructions }}</p>
+      <h2 class="rs-micro-uppercase rs-text-tertiary" style="margin-bottom: var(--space-sm)">Instructies</h2>
+      <p class="rs-body rs-text-secondary">{{ drink.strInstructions }}</p>
     </div>
   </div>
 </template>

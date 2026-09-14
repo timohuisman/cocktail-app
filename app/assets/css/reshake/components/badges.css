@@ -1,0 +1,15 @@
+/* Badges & tags. Text always uses the -900 tone on its own -100 tint. */
+.rs-badge{display:inline-flex;align-items:center;gap:6px;font:var(--type-caption-bold);border-radius:var(--radius-full);padding:4px 10px;white-space:nowrap}
+.rs-badge--sweet{background:var(--blush-100);color:var(--blush-900)}
+.rs-badge--sour{background:var(--mint-100);color:var(--mint-900)}
+.rs-badge--smoky{background:var(--citrus-100);color:var(--citrus-900)}
+.rs-badge--herbal{background:var(--sky-100);color:var(--sky-900)}
+.rs-badge--bitter{background:var(--grape-100);color:var(--grape-900)}
+.rs-badge--strong{background:var(--coral-100);color:var(--coral-900)}
+.rs-badge--match{background:var(--success-100);color:var(--success-700)}
+.rs-badge--unlock{background:var(--citrus-100);color:var(--citrus-900)}
+.rs-badge--rating{background:var(--surface);color:var(--ink);border:1px solid var(--border-default)}
+.rs-badge--neutral{background:var(--surface-soft);color:var(--slate)}
+.rs-badge--on-glass{background:var(--glass-surface-strong);color:var(--ink);border:1px solid var(--glass-border)}
+.rs-badge__dot{width:8px;height:8px;border-radius:var(--radius-full);flex:0 0 auto}
+.rs-badge--lg{font:var(--type-body-sm-medium);padding:6px 14px}

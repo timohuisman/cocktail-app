@@ -1,0 +1,26 @@
+/* Spacing — 4px base, 8px primary increment. */
+:root{
+  --space-xxs:4px;
+  --space-xs:8px;
+  --space-sm:12px;
+  --space-md:16px;
+  --space-lg:20px;
+  --space-xl:24px;
+  --space-xxl:32px;
+  --space-xxxl:40px;
+  --space-section-sm:48px;
+  --space-section:64px;
+  --space-section-lg:96px;
+
+  /* layout aliases */
+  --container-max:1200px;
+  --grid-gutter:24px;
+  --card-gap:var(--space-lg);
+  --section-rhythm:var(--space-section-sm);
+  --card-padding-compact:var(--space-md);
+  --card-padding:var(--space-lg);
+  --card-padding-hero:var(--space-xxl);
+  --sidebar-width:248px;
+  --control-height:44px;
+  --control-height-sm:40px;
+}

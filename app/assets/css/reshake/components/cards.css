@@ -1,0 +1,67 @@
+/* Cards. Glass floats on the gradient; content-dense cards sit on solid canvas. */
+.rs-card-glass{background:var(--glass-surface);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);box-shadow:var(--shadow-glass);border-radius:var(--radius-xl);padding:var(--space-xl)}
+.rs-card-glass--strong{background:var(--glass-surface-strong)}
+.rs-card-glass--r-xxl{border-radius:var(--radius-xxl)}
+.rs-card-glass--r-xxxl{border-radius:var(--radius-xxxl)}
+.rs-card-glass--p-lg{padding:var(--space-lg)}
+.rs-card-glass--p-xxl{padding:var(--space-xxl)}
+.rs-card-glass--flat{box-shadow:none}
+
+/* Stat card — glass, no shadow, big tabular number. */
+.rs-stat-card{display:flex;flex-direction:column;gap:var(--space-xxs);background:var(--glass-surface);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);border-radius:var(--radius-xl);padding:var(--space-lg)}
+.rs-stat-card__icon{width:44px;height:44px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-bottom:var(--space-xxs)}
+.rs-stat-card__value{font:var(--type-stat-display);letter-spacing:var(--stat-display-tracking);color:var(--ink);font-variant-numeric:tabular-nums}
+.rs-stat-card__value--sm{font:var(--type-heading-1);letter-spacing:var(--heading-1-tracking)}
+.rs-stat-card__label{font:var(--type-body-sm);color:var(--text-secondary)}
+.rs-stat-card__caption{font:var(--type-micro);color:var(--text-tertiary)}
+
+/* Media placeholder — no photography shipped with the brief. 4:3, radius xl. */
+.rs-media{position:relative;aspect-ratio:4/3;border-radius:var(--radius-xl);overflow:hidden;background:var(--surface-soft);display:flex;align-items:center;justify-content:center;color:var(--steel)}
+.rs-media img{width:100%;height:100%;object-fit:cover;display:block}
+.rs-media--square{aspect-ratio:1/1}
+.rs-media--wide{aspect-ratio:16/9}
+.rs-media__note{position:absolute;bottom:8px;left:8px;font:var(--type-micro);color:var(--text-tertiary)}
+
+/* Recipe card — grid tile. */
+.rs-recipe-card{display:flex;flex-direction:column;gap:var(--space-sm);background:var(--canvas);border-radius:var(--radius-xl);padding:var(--space-md);border:1px solid var(--border-subtle);box-shadow:var(--shadow-recipe);text-align:left;cursor:pointer;transition:box-shadow var(--duration-base) var(--ease-standard),transform var(--duration-base) var(--ease-standard);font:var(--type-body-md);color:var(--ink)}
+.rs-recipe-card:hover{box-shadow:rgba(46,33,64,0.1) 0px 8px 20px -4px;transform:translateY(-2px)}
+.rs-recipe-card:active{transform:translateY(0) scale(var(--press-scale))}
+.rs-recipe-card:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.rs-recipe-card__title{font:var(--type-heading-5);color:var(--ink)}
+.rs-recipe-card__meta{font:var(--type-caption);color:var(--text-secondary)}
+.rs-recipe-card__tags{display:flex;flex-wrap:wrap;gap:6px}
+
+/* Recipe hero — detail page header. */
+.rs-recipe-hero{background:var(--glass-surface-strong);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-backdrop);backdrop-filter:var(--glass-backdrop);box-shadow:var(--shadow-glass);border-radius:var(--radius-xxxl);padding:var(--space-xxl);display:flex;flex-direction:column;gap:var(--space-md)}
+.rs-recipe-hero__title{font:var(--type-display-lg);letter-spacing:var(--display-lg-tracking);color:var(--ink)}
+.rs-recipe-hero__sub{font:var(--type-subtitle);color:var(--text-secondary);max-width:56ch}
+.rs-recipe-hero__row{display:flex;align-items:center;gap:var(--space-xs);flex-wrap:wrap}
+
+/* Feed post — social check-in. */
+.rs-feed-post{display:flex;flex-direction:column;gap:var(--space-sm);background:var(--canvas);border-radius:var(--radius-xl);padding:var(--space-lg);border:1px solid var(--border-subtle);box-shadow:var(--elevation-1)}
+.rs-feed-post__head{display:flex;align-items:center;gap:var(--space-sm)}
+.rs-feed-post__name{font:var(--type-body-md-medium);color:var(--ink)}
+.rs-feed-post__time{font:var(--type-micro);color:var(--text-tertiary)}
+.rs-feed-post__note{font:var(--type-body-sm);color:var(--slate)}
+.rs-feed-post__actions{display:flex;align-items:center;gap:var(--space-md);padding-top:var(--space-xs);border-top:1px solid var(--border-subtle)}
+.rs-feed-action{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:6px 0;font:var(--type-body-sm-medium);color:var(--slate);cursor:pointer;transition:var(--transition-control)}
+.rs-feed-action:hover{color:var(--ink)}
+.rs-feed-action--on{color:var(--blush-700)}
+
+/* Inventory row — flat, hairline only. */
+.rs-inventory-item{display:flex;align-items:center;gap:var(--space-md);background:var(--canvas);border-radius:var(--radius-lg);padding:var(--space-md);border:1px solid var(--border-subtle)}
+.rs-inventory-item__icon{width:40px;height:40px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.rs-inventory-item__name{font:var(--type-body-md-medium);color:var(--ink)}
+.rs-inventory-item__meta{font:var(--type-caption);color:var(--text-secondary)}
+.rs-inventory-item--out{opacity:0.7}
+
+/* Host mode suggestion — mint tint, no border. */
+.rs-host-card{display:flex;flex-direction:column;gap:var(--space-sm);background:var(--mint-100);color:var(--mint-900);border-radius:var(--radius-xxxl);padding:var(--space-lg)}
+.rs-host-card__eyebrow{font:var(--type-micro-uppercase);letter-spacing:var(--micro-uppercase-tracking);text-transform:uppercase;color:var(--mint-700)}
+.rs-host-card__title{font:var(--type-heading-3);color:var(--mint-900)}
+.rs-host-card__body{font:var(--type-body-sm);color:var(--mint-900);opacity:0.86}
+
+/* Empty state — dashed, inviting. */
+.rs-empty{display:flex;flex-direction:column;align-items:center;gap:var(--space-sm);background:var(--surface);color:var(--text-secondary);border-radius:var(--radius-xl);padding:var(--space-xxl);border:1px dashed var(--border-strong);text-align:center}
+.rs-empty__title{font:var(--type-heading-4);color:var(--ink)}
+.rs-empty__body{font:var(--type-body-sm);color:var(--text-secondary);max-width:44ch}

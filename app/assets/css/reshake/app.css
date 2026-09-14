@@ -1,0 +1,126 @@
+/* App-level layout glue for cocktail-app — not part of the design system itself.
+   Mirrors the "Layout only, no component restyling" role of Reshake's own webapp.css. */
+html,
+body,
+#__nuxt {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: var(--font-core);
+}
+
+.rs-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--grid-gutter);
+  padding-block: var(--space-xl);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.rs-shell__sidebar {
+  position: sticky;
+  top: var(--space-xl);
+  flex: 0 0 auto;
+  display: none;
+}
+.rs-shell__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section-sm);
+  padding-bottom: calc(96px + var(--space-xl));
+}
+.rs-shell__bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+}
+
+@media (min-width: 1024px) {
+  .rs-shell__sidebar {
+    display: flex;
+  }
+  .rs-shell__bottom-nav {
+    display: none;
+  }
+  .rs-shell__main {
+    padding-bottom: 0;
+  }
+}
+
+.rs-page-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.rs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--card-gap);
+}
+@media (min-width: 640px) {
+  .rs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .rs-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.rs-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 560px;
+}
+.rs-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.rs-form__search {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 640px;
+}
+.rs-form__search .rs-search {
+  flex: 1;
+}
+
+.rs-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .rs-detail-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxl);
+  }
+}
+
+.rs-ingredient-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rs-ingredient-list li {
+  font: var(--type-body-sm);
+  color: var(--ink);
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--hairline-soft);
+}
+.rs-ingredient-list li:last-child {
+  border-bottom: 0;
+}

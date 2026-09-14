@@ -1,0 +1,12 @@
+/* Satoshi — served from Fontshare (the type foundry's own CDN).
+   No font binaries were supplied with the brief; see readme.md → "Font substitution".
+   Satoshi ships 300/400/500/700/900 + italics. The brief's weight 600 (badges,
+   micro-uppercase) has no matching face and resolves to 700 in the browser. */
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap");
+
+:root{
+  /* Fallback order per the brief: Inter, then the platform UI face. */
+  --font-core:'Satoshi','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-body:var(--font-core);
+  --font-display:var(--font-core);
+}
