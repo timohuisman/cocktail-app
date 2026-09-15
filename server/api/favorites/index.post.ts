@@ -6,6 +6,7 @@ interface CreateFavoriteBody {
 }
 
 export default defineEventHandler(async (event) => {
+  const user = await getSessionUser(event)
   const body = await readBody<CreateFavoriteBody>(event)
 
   if (!body?.recipeId && !body?.externalId) {
@@ -18,7 +19,8 @@ export default defineEventHandler(async (event) => {
       recipeId: body.recipeId,
       externalId: body.externalId,
       externalName: body.externalName,
-      externalImageUrl: body.externalImageUrl
+      externalImageUrl: body.externalImageUrl,
+      userId: user.id
     }
   })
 })

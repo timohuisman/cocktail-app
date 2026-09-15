@@ -45,12 +45,19 @@ export default defineEventHandler(async (event) => {
     return sendRedirect(event, '/login?error=no_access')
   }
 
+  const prisma = usePrisma()
+  const user = await prisma.user.upsert({
+    where: { plexId: account.id },
+    update: { username: account.username, email: account.email || null, thumb: account.thumb },
+    create: { plexId: account.id, username: account.username, email: account.email || null, thumb: account.thumb }
+  })
+
   await setUserSession(event, {
     user: {
-      id: account.id,
-      username: account.username,
-      email: account.email,
-      thumb: account.thumb
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      thumb: user.thumb
     }
   })
 

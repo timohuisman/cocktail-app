@@ -10,6 +10,17 @@ datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id        String     @id @default(cuid())
+  plexId    Int        @unique
+  email     String?
+  username  String
+  thumb     String?
+  createdAt DateTime   @default(now())
+  recipes   Recipe[]
+  favorites Favorite[]
+}
+
 model Recipe {
   id           String       @id @default(cuid())
   name         String
@@ -20,6 +31,8 @@ model Recipe {
   isAlcoholic  Boolean      @default(true)
   ingredients  Ingredient[]
   favorites    Favorite[]
+  userId       String
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }
@@ -41,8 +54,10 @@ model Favorite {
   externalId       String?
   externalName     String?
   externalImageUrl String?
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt        DateTime @default(now())
 
-  @@unique([recipeId])
-  @@unique([externalId])
+  @@unique([userId, recipeId])
+  @@unique([userId, externalId])
 }

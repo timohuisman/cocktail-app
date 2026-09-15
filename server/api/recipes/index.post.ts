@@ -9,6 +9,7 @@ interface CreateRecipeBody {
 }
 
 export default defineEventHandler(async (event) => {
+  const user = await getSessionUser(event)
   const body = await readBody<CreateRecipeBody>(event)
 
   if (!body?.name || !body?.instructions || !body?.ingredients?.length) {
@@ -24,6 +25,7 @@ export default defineEventHandler(async (event) => {
       instructions: body.instructions,
       imageUrl: body.imageUrl,
       isAlcoholic: body.isAlcoholic ?? true,
+      userId: user.id,
       ingredients: {
         create: body.ingredients.map((i) => ({ name: i.name, amount: i.amount }))
       }
